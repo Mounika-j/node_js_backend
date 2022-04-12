@@ -10,7 +10,7 @@ app.use(cors());
 app.options('*', cors())
 
 //middleware
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(morgan('tiny'));
 
 
