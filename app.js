@@ -33,19 +33,19 @@ app.use(`${api}/orders`, ordersRoutes);
 
 //Database
 mongoose
-  .connect(process.env.CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    dbName: "mean-eshop",
-  })
-  .then(() => {
-    console.log("Database Connection is ready...");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-//Server
-app.listen(3000, () => {
-  console.log("server is running http://localhost:3000");
+    .connect(process.env.CONNECTION_STRING, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        dbName: process.env.DB_NAME,
+    })
+    .then(() => {
+        console.log("Database Connection is ready...");
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+const PORT = process.env.PORT || 3000
+    //Server
+app.listen(PORT, () => {
+    console.log("server is running http://localhost:3000");
 });
